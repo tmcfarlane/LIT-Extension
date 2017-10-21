@@ -1,0 +1,47 @@
+<!doctype html>
+<!--
+Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
+
+    http://aws.amazon.com/apache2.0/
+
+or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+-->
+<!--
+
+   Use this file as a starting point for your viewer extension view.
+
+-->
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/viewer.css">
+        <script src="js/vue.js"></script>
+    </head>
+    <body>
+        <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+        <script src="js/common.js"></script>
+        <div id="app" class="wrapper">
+<!--            {{message}}-->
+            <div class="box a">
+                <h1 class="title a">Submissions Open!</h1>
+               </div>
+          <div class="box b">
+              <div id="scrolling-text" class="scrolling-text">
+              </div>
+            </div>
+          <div class="box c">
+            <form action="#" method="post" class="form-data">
+                <input class="textinput b" type="text" name="textsubmission" onchange="renderText(this.value)" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();">
+                <input class="btn c" type="submit" name="submit" value="Submit">
+            </form>
+          </div>
+          <div class="box e">Voting Begins: 5min 42s</div>
+        </div>
+        <script src="js/viewer.js"></script>
+    </body>
+</html>
