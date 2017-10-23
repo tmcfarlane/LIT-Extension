@@ -17,11 +17,36 @@ or in the "license" file accompanying this file. This file is distributed on an 
 //function renderText(val) {
 //    document.getElementById('scrolling-text').innerHTML = "<marquee behavior=\"scroll\" direction=\"left\">" + val + "</marquee>";
 //}
+var preview = { previewtext: "intial" }
+
+Vue.component('previewtext', {
+    props:['message'],
+  template: '<marquee class="scrolling-text">{{message}}</marquee>',
+    data: function(){
+        return preview
+    }
+})
+
+//Vue.component('textfield', {
+//    template: '</input>'
+//})
 
 //main application
 var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
-  }
+    el: '#app',
+    data: {
+        title: 'Submissions Open!',
+        previewtext: '',
+        page: 'submission'
+    },
+    methods: {
+        submit: function (event) {
+          // `this` inside methods points to the Vue instance
+          alert(this.previewtext)
+          // `event` is the native DOM event
+          if (event) {
+            alert(event.target.className)
+          }
+        }
+    }
 })

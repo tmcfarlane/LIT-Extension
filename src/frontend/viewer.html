@@ -25,23 +25,21 @@ or in the "license" file accompanying this file. This file is distributed on an 
     <body>
         <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
         <script src="js/common.js"></script>
-        <div id="app" class="wrapper">
-<!--            {{message}}-->
+        <transition name="fade" mode="out-in">
+        <div id="app" class="wrapper" v-if="page == 'submission'">
             <div class="box a">
-                <h1 class="title a">Submissions Open!</h1>
+                <h1 id="title" class="title">{{title}}</h1>
                </div>
           <div class="box b">
-              <div id="scrolling-text" class="scrolling-text">
-              </div>
+             <previewtext id="preview-text" v-bind:message="previewtext"></previewtext>
             </div>
           <div class="box c">
-            <form action="#" method="post" class="form-data">
-                <input class="textinput b" type="text" name="textsubmission" onchange="renderText(this.value)" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();">
-                <input class="btn c" type="submit" name="submit" value="Submit">
-            </form>
+              <input class="textinput c" type="text" placeholder="type here to preview..." v-model="previewtext" maxlength="50">
+              <button class="btn c" v-on:click="page = 'vote'">Submit</button>
           </div>
           <div class="box e">Voting Begins: 5min 42s</div>
         </div>
+        </transition>
         <script src="js/viewer.js"></script>
     </body>
 </html>

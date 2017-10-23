@@ -25,51 +25,35 @@ body {
     border-radius: 5px;
     position: relative;
 }
-/*
-.main {
-    display: grid;
-    grid-template-rows: 50px 100px 25px 25px; 
-    margin: auto;
-    padding: 5px;
-    text-align: center;
-}
-.title {
-    color:white;
-}
-.form-data > input{
-    margin: auto;
-    display: block;
-    width: 95%;
-}
-.btn{
-    align-self: end;
-}
-*/
 .wrapper {
     display: grid;
-    grid-template-rows: 50px 125px 50px 25px 50px;
+    grid-template-rows: 40px 135px 50px 25px 50px;
     color: #00ECB9;
 }
 .box {
     background-color: #444;
     color: #fff;
-    border-color: aqua;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 .a{
     grid-row: 1;
+    border-bottom: 2px solid #73AD21;
+    border-bottom-style: dashed;
 }
 .b{
     grid-row: 2;
-    margin: 5px;
+    margin: 10px;
     border: 3px solid #4286f4;
     border-radius: 5px;
 }
 .c{
     grid-row: 3/5;
     align-self: stretch;
+    font-size: 18px;
+    margin: 3px;
 }
 .e{
     grid-row 5;
@@ -78,20 +62,21 @@ body {
     font-size: 55px;
     width: 100%;
 }
-.form-data{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    max-width: auto;
-    width:90%;
-}
-.form-data > input{
-    margin: 5px;
+.c > input{
+    
 }
 .textinput{
-    width: 85%
+    font-size: 18px;
 }
 .btn{
-    
+    border-radius: 5px;
+    width: 35%;
+    align-self: center;
+    margin-top: 5px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
 }
