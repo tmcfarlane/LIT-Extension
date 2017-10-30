@@ -58,7 +58,18 @@ body {
 .e{
     grid-row 5;
 }
-.scrolling-text{
+.f{
+    grid-row: 2/5;
+    align-self: stretch;
+    font-size: 18px;
+    margin: 3px;
+    white-space: nowrap;
+}
+.radiobtns{
+    width: 240px;
+    overflow:hidden;
+}
+.preview-text{
     font-size: 55px;
     width: 100%;
 }

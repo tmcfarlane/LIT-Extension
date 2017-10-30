@@ -14,32 +14,53 @@ or in the "license" file accompanying this file. This file is distributed on an 
 
 -->
 <html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/viewer.css">
-        <script src="js/vue.js"></script>
-    </head>
-    <body>
-        <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
-        <script src="js/common.js"></script>
-        <transition name="fade" mode="out-in">
-        <div id="app" class="wrapper" v-if="page == 'submission'">
-            <div class="box a">
-                <h1 id="title" class="title">{{title}}</h1>
-               </div>
-          <div class="box b">
-             <previewtext id="preview-text" v-bind:message="previewtext"></previewtext>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/viewer.css">
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+    <script src="js/common.js"></script>
+    <transition name="fade" mode="out-in">
+        <div id="app">
+            <div class="wrapper" v-if="page == 'submission'">
+                <div class="box a">
+                    <h1 id="title" class="title">{{title}}</h1>
+                </div>
+                <div class="box b">
+                    <previewtext id="preview-text" v-bind:message="previewtext"></previewtext>
+                </div>
+                <div class="box c">
+                    <input class="textinput c" type="text" placeholder="type here to preview..." v-model="previewtext" maxlength="50">
+                    <button id="submitbtn" class="btn c" v-on:click="submit()">Submit</button>
+                </div>
+                <div class="box e">Voting Begins: 5min 42s</div>
             </div>
-          <div class="box c">
-              <input class="textinput c" type="text" placeholder="type here to preview..." v-model="previewtext" maxlength="50">
-              <button class="btn c" v-on:click="page = 'vote'">Submit</button>
-          </div>
-          <div class="box e">Voting Begins: 5min 42s</div>
+            <div class="wrapper" v-if="page == 'vote'">
+                <div class="box a">
+                    <h1 id="title" class="title">{{title}}</h1>
+                </div>
+                <div class="box f">
+                    <form class="radiobtns" action="">
+                        <input type="radio" name="choice" value="1"> <marquee>{{entry1}}</marquee><br>
+                        <input type="radio" name="choice" value="2"> <marquee>{{entry2}}</marquee><br>
+                        <input type="radio" name="choice" value="3"> <marquee>{{entry3}}</marquee><br>
+                        <input type="radio" name="choice" value="4"> <marquee>{{entry4}}</marquee><br>
+                        <input type="radio" name="choice" value="5"> <marquee>{{entry5}}</marquee>
+                    </form>
+                    <button id="votebtn" class="btn f" v-on:click="vote()">Submit</button>
+                </div>
+                <div class="box e">Voting Begins: 5min 42s</div>
+            </div>
         </div>
-        </transition>
-        <script src="js/viewer.js"></script>
-    </body>
+    </transition>
+    <script src="js/viewer.js"></script>
+</body>
+
 </html>

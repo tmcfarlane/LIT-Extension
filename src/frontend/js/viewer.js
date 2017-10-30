@@ -21,7 +21,7 @@ var preview = { previewtext: "intial" }
 
 Vue.component('previewtext', {
     props:['message'],
-  template: '<marquee class="scrolling-text">{{message}}</marquee>',
+  template: '<marquee class="preview-text">{{message}}</marquee>',
     data: function(){
         return preview
     }
@@ -37,16 +37,19 @@ var app = new Vue({
     data: {
         title: 'Submissions Open!',
         previewtext: '',
-        page: 'submission'
+        page: 'submission',
+        entry1: 'test1',
+        entry2: 'test2',
+        entry3: 'test3',
+        entry4: 'test4',
+        entry5: 'test5'
     },
     methods: {
         submit: function (event) {
-          // `this` inside methods points to the Vue instance
-          alert(this.previewtext)
-          // `event` is the native DOM event
-          if (event) {
-            alert(event.target.className)
+          if(!this.previewtext){
+              alert('Invalid Input')
           }
+            
         }
     }
 })
